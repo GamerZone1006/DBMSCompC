@@ -124,7 +124,7 @@
             padding: 10px;
             text-decoration: none; 
             color: inherit;
-            border-bottom: 2px solid transparent; /
+            border-bottom: 2px solid transparent; 
             transition: border-color 0.3s ease; 
         }
 
@@ -136,6 +136,55 @@
         .subnav-link:hover {
             text-decoration: none !important; 
             box-shadow: none !important; 
+        }
+        .typing-line {
+            font-family: monospace;
+            font-size: 1.2em;
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden;
+            color: rgb(253, 176, 32);
+            border-right: 3px solid orange; /* Cursor color */
+            animation: typing 2s steps(30) 1s 1 normal both, blink-caret 0.75s step-end infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: orange; }
+        }
+
+        /* Ensure visibility for paragraph */
+        .hidden-description, #dbms-text {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+        #dbms-text{
+            font-size: 5rem;
+            font-weight: bold;
+        }
+        .atf-h1-wrapper.show #dbms-text,
+        .atf-h1-wrapper.show .hidden-description {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hidden-description {
+            font-size: 1em;
+            margin-top: 5px;
+        }
+
+        /* Remove white cursor from after the words */
+        .cursor {
+            border: none; /* Remove border to eliminate the cursor */
+            animation: none; /* Disable cursor animation */
+            display: inline-block;
         }
 
     </style>    
@@ -441,13 +490,29 @@
                             <div class="atf-padding">
                                 <div class="aft-wrapper">
                                     <div class="atf-col-1">
-                                        <div data-w-id="7ad75875-cd0c-a531-39f7-6b88ba906a22" style="opacity:0"
-                                            class="atf-h1-wrapper">
-                                            <h1 class="heading-style-h1">database<br />management<span
-                                                    class="text-color-orange">&nbsp;system</span></h1>
+                                        <div data-w-id="7ad75875-cd0c-a531-39f7-6b88ba906a22" class="atf-h1-wrapper">
+                                            <h2>
+                                                <div class="typing-line">
+                                                    <span class="text-to-type">WELCOME TO THE WORLD OF</span>
+                                                    <span class="cursor">|</span>
+                                                </div>
+                                            </h2>
+                                            <h1 class="heading-style-h1" id="dbms-text">database<br />management<span class="text-color-orange">&nbsp;system</span></h1><br>
+                                            <p id="dbms-description" class="hidden-description">Find all the study materials for DBMS subject in one place.</p>
                                         </div>
-                                        <p data-w-id="7e6e1e89-98cf-e132-825d-89213d297915" style="opacity:0">Find all the study materials for DBMS subject in one place.</p> 
                                     </div>
+                                    <script>
+                                                document.addEventListener('DOMContentLoaded', function () {
+                                            const h1Wrapper = document.querySelector('.atf-h1-wrapper');
+                                            const dbmsText = document.getElementById('dbms-text');
+                                            const description = document.getElementById('dbms-description');
+                                            
+                                            // After typing animation ends, show the DBMS text and description
+                                            setTimeout(function () {
+                                                h1Wrapper.classList.add('show');
+                                            }, 3500); // Adjust timing based on typing speed
+                                        });
+                                    </script>                                    
                                     <div class="atf-col-2">
                                         <div class="star-visuals-wrapper">
                                             <div class="star-img-wrapper">
