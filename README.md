@@ -6,7 +6,7 @@
 
 <h3 align="center">DBMS-website</h3>
 <p align="center">
-This is a project about open to DBMS Website that is made by my team from Thakur college of engineering computer department  
+This is a project about open to DBMS Website that is made by my team from Thakur college of engineering Computer Department.  
 
 
   
@@ -90,10 +90,11 @@ Below is the Block-diagram for the project explaining the details and simple wor
 - <a href="https://github.com/GamerZone1006" target="_blank">  Github Profile</a> 
 - <a href="https://linkedin.com/in/anushka-m-yadav" target="_blank">  Linkedin Profile</a> 
 
+Backend Dev : Unnat Malik 
+- <a href="https://github.com/UnnatMalik" target="_blank"> Github Profile</a> 
+- <a href="https://linkedin.com/in/unnat-malik-2b90bb2b4" target="_blank"> Linkedin Profile</a>
+  
 Backend Dev : Aryan Yadav 
 - <a href="https://github.com/aryanyadav-dev" target="_blank"> Github Profile</a> 
 - <a href="https://linkedin.com/in/-aryanyadav" target="_blank">  Linkedin Profile</a> 
 
-Backend Dev : Unnat Malik 
-- <a href="https://github.com/UnnatMalik" target="_blank"> Github Profile</a> 
-- <a href="https://linkedin.com/in/unnat-malik-2b90bb2b4" target="_blank"> Linkedin Profile</a> 
