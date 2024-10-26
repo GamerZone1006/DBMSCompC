@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="icon" href="/favicon.png" type="image/png" />
     <style>
         @media (min-width:992px) {
             html.w-mod-js:not(.w-mod-ix) [data-w-id="327681a8-4cda-fcd2-8e49-116859dd7b68"] {
@@ -233,27 +234,140 @@
             box-shadow: none; 
         }
     }
+    #loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.99); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; 
+}
+
+.loader {
+    width: 100px;
+    aspect-ratio: 1;
+    padding: 10px;
+    box-sizing: border-box;
+    display: grid;
+}
+
+.loader:before {
+    content: "";
+    margin: auto;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #ff9933;
+    box-shadow: 
+        -30px 0 #ff9933, 
+        30px 0 #ff9933, 
+        0 30px #ff9933, 
+        0 -30px #ff9933,
+        0 0 15px rgba(255, 153, 0, 0.8), 
+        0 0 25px rgba(255, 153, 0, 0.6), 
+        inset 0 0 10px rgba(255, 153, 0, 1); 
+    animation: l6 1s infinite alternate;
+}
+
+@keyframes l6 {
+    90%, 100% {
+        box-shadow: -10px 0 #ff9933, 
+                    10px 0 #ff9933, 
+                    0 10px #ff9933, 
+                    0 -10px #ff9933;
+        transform: rotate(180deg);
+    }
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
     </style>
 </head>
 
 <body>
+    <div id="loader" class="loader"></div>
+    <script>
+        window.addEventListener("load", function () {
+        setTimeout(function () {
+            const loader = document.getElementById("loader");
+            const content = document.getElementById("content");
+            loader.style.display = "none"; 
+            content.style.display = "block"; 
+        }, 2000);
+    });
+    </script>
     <style>
+        .mobile-message {
+            display: none; 
+            text-align: center; 
+            background-color: #f8d7da; 
+            color: #721c24;
+            padding: 10px; 
+            margin-bottom: 10px; 
+        }
+        @media (max-width: 768px) {
+            .mobile-message {
+                display: block; 
+            }
+        }
+        @media (min-width: 769px) {
+            .mobile-message {
+                display: none; 
+            }
+        }
         .dropdown-menu .dropdown-item:hover {
             color: orange !important; 
             background-color: transparent;
         }
+        .navbar-brand img{
+            height: 10vh;
+        }
+        .navbar{
+            gap: 1rem;
+        }
+        @media (max-width: 768px) {
+            .navbar-brand {
+                font-size: 1rem !important;
+                display: flex;
+                align-items: center;
+                text-align: center;
+            }
+
+            .navbar-brand img {
+                height: 2rem;
+                margin: 0.5rem;
+            }
+
+            .navbar-toggler {
+                color: white !important;
+            }
+        }
 </style>
     </style>
+    <div class="mobile-message">For better user experience, use a larger screen.</div> 
     <div class="page-wrapper">
         <div class="main-wrapper">
-            <nav class="navbar navbar-expand-lg sticky-top" style="background-color: transparent;">
+            <nav class="navbar navbar-expand-lg sticky-top" style="background-color: transparent; gap: -50rem !important;">
                 <div class="container-fluid">
-                  <a class="navbar-brand" href="Homepage.html" style="font-size: 2.5rem; color: white; font-weight: bold; font-family: Verdana, Geneva, Tahoma, sans-serif;">DBMS</a>
+                  <a class="navbar-brand" href=" " style="font-size: 2.5rem; color: white; font-weight: bold; font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                    DBMS | <img src="/complogo.png" alt="complogo"> | <img src="/tcetlogo.png" alt="tcet logo">
+                </a>
+                  
                   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon" style="color: white;"></span>
                   </button>
+                  
                   <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-                    <ul class="navbar-nav" style="gap: 2rem; border-radius: 23px; background-color: rgba(255, 255, 255, 0.096); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); padding: 5px;">
+                    <ul class="navbar-nav" style="gap: 1rem; border-radius: 23px; background-color: rgba(255, 255, 255, 0.096); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); padding: 5px;">
                       <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">
                           CONTENT
@@ -267,10 +381,11 @@
                             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
                             border: 1px solid rgba(255, 255, 255, 0.2);
                         ">
-                          <li><a class="dropdown-item" href="#" style="color: white; font-weight: 500; padding: 10px;">Modules</a></li>
-                          <li><a class="dropdown-item" href="#" style="color: white; font-weight: 500; padding: 10px;">PPTs</a></li>
-                          <li><a class="dropdown-item" href="#" style="color: white; font-weight: 500; padding: 10px;">Practicals</a></li>
-                          <li><a class="dropdown-item" href="StudyMaterials.html" style="color: white; font-weight: 500; padding: 10px;">Study Materials</a></li>
+                          <li><a class="dropdown-item" href="Modules/" style="color: white; font-weight: 500; padding: 10px;">Modules</a></li>
+                          <li><a class="dropdown-item" href="ppt/" style="color: white; font-weight: 500; padding: 10px;">PPTs</a></li>
+                          <li><a class="dropdown-item" type= "submit"href="Practicals/" style="color: white; font-weight: 500; padding: 10px;">Practicals</a></li>
+                          <li><a class="dropdown-item" type="submit" href="StudyMaterial/" style="color: white; font-weight: 500; padding: 10px;">Study Materials</a></li>
+                          <li><a class="dropdown-item" type="submit" href="/pyq.html" style="color: white; font-weight: 500; padding: 10px;">PYQs</a></li>
                         </ul>
                       </li>
                       
@@ -289,8 +404,8 @@
                         ">
                           <li><a class="dropdown-item" href="https://loukik-salvi.vercel.app/" style="color: white; font-weight: 500; padding: 10px;">Loukik Salvi <br>Mentor</a></li><hr style="color: white;">
                           <li><a class="dropdown-item" href="https://anushka-portofolio.vercel.app/" style="color: white; font-weight: 500; padding: 10px;">Anushka Yadav <br>Frontend Development</a></li><hr style="color: white;">
-                          <li><a class="dropdown-item" href="#" style="color: white; font-weight: 500; padding: 10px;">Unnat Malik <br>Backend Development</a></li><hr style="color: white;">
-                          <li><a class="dropdown-item" href="https://aryanyadav-portfolio.vercel.app/" style="color: white; font-weight: 500; padding: 10px;">Aryan Yadav <br>Backend Development</a></li>
+                          <li><a class="dropdown-item" href="https://aryanyadav-portfolio.vercel.app/" style="color: white; font-weight: 500; padding: 10px;">Aryan Yadav <br>Backend Development</a></li><hr style="color: white;">
+                          <li><a class="dropdown-item" href="https://unnat-malik.vercel.app/" style="color: white; font-weight: 500; padding: 10px;">Unnat Malik <br>Backend Development</a></li>
                         </ul>
                       </li>
                     </ul>
@@ -444,7 +559,7 @@
                                         <div style="height:0px" class="faqs-bottom">
                                             <div class="faqs-bottom-inner">
                                                 <div class="text-rich-text w-richtext">
-                                                    <code>
+                                                    <code style="color: white;">
                                                         <b>Basic SQL Syntax Example</b><br>
                                                         SHOW DATABASES; <br>
                                                         CREATE DATABASE db_name; <br>
@@ -473,7 +588,7 @@
                                         <div style="height:0px" class="faqs-bottom">
                                             <div class="faqs-bottom-inner">
                                                 <div class="text-rich-text w-richtext">
-                                                    <code>
+                                                    <code style="color: white;">
                                                         <b>Learn about how to create a table and insert data in it.</b><br>
                                                         CREATE TABLE tb_name( <br>
                                                         column1 datatype constraint; <br>
@@ -510,7 +625,7 @@
                                         </div>
                                         <div style="height:0px" class="faqs-bottom">
                                             <div class="faqs-bottom-inner">
-                                                <div class="text-rich-text w-richtext">
+                                                <div class="text-rich-text w-richtext" style="color: white;">
                                                     <b>The following constraints are commonly used in SQL:</b><br>
                                                     <ul>
                                                         <li>NOT NULL - Ensures that a column cannot have a NULL value</li>
@@ -541,7 +656,7 @@
                                         </div>
                                         <div style="height:0px" class="faqs-bottom">
                                             <div class="faqs-bottom-inner">
-                                                <div class="text-rich-text w-richtext">
+                                                <div class="text-rich-text w-richtext" style="color: white;">
                                                     <ul>
                                                         <li>DDL (Data Definition Language) actually consists of the SQL commands that can be used to define the database schema.</li>
                                                         <li>The SQL commands that deal with the manipulation of data present in the database belong to DML (Data Manipulation Language) and this includes most of the SQL statements.</li>
@@ -570,8 +685,8 @@
                                         </div>
                                         <div style="height:0px" class="faqs-bottom">
                                             <div class="faqs-bottom-inner">
-                                                <div class="text-rich-text w-richtext">
-                                                    <b>Test your knowledge!</b> <br><br>
+                                                <div class="text-rich-text w-richtext" style="color: white;">
+                                                    Test your knowledge! <br><br>
                                                     <a href="https://www.w3schools.com/sql/sql_quiz.asp"><button>Get Started</button></a>
                                                 </div>
                                             </div>
@@ -783,7 +898,7 @@
                                 <div class="main-cta-col-2">
                                     <p class="text-size-regular">Enhance your skills by practicing what you've learnt by coding...</p>
                                     <div class="main-cta-buttons-wrapper">
-                                            <a href="https://onecompiler.com/mysql" target="_blank" class="button-primary w-inline-block">
+                                            <a href="trial/" target="_blank" class="button-primary w-inline-block">
                                             <div class="button-slide-item">
                                                 <img src="https://cdn-icons-png.flaticon.com/512/3272/3272665.png" loading="lazy" width="13" height="18" alt="" class="button-slide-item-img" /></div>
                                             <div class="book-a-demo-wrapper">
